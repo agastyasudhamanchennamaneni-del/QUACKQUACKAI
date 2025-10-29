@@ -1,13 +1,10 @@
-let requests = {};
+// backend/middleware/rateLimit.js
+import rateLimit from "express-rate-limit";
 
-export default function rateLimit(req, res, next) {
-  const ip = req.ip;
-  const now = Date.now();
-  if (!requests[ip]) requests[ip] = [];
-  requests[ip] = requests[ip].filter(ts => now - ts < 60000);
-  if (requests[ip].length > 20) {
-    return res.status(429).json({ error: 'Too many requests, slow down.' });
-  }
-  requests[ip].push(now);
-  next();
-}
+const limiter = rateLimit({
+  windowMs: 60 * 1000, // 1 minute
+  max: 60, // Limit each IP to 60 requests per minute
+  message: { error: "Too many requests. Please try again later." },
+});
+
+export default limiter;
