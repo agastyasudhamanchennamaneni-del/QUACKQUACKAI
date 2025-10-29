@@ -1,22 +1,116 @@
-/* index.css — base styling */
-* {
+body {
+  background: radial-gradient(circle at top left, #0f2027, #203a43, #2c5364);
+  color: #fff;
+  font-family: "Poppins", sans-serif;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  background: linear-gradient(135deg, #0a192f, #112240);
-  color: white;
-  font-family: 'Inter', sans-serif;
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
 }
 
-#root {
-  width: 100%;
-  max-width: 900px;
+.app {
+  text-align: center;
+  width: 90%;
+  max-width: 700px;
   padding: 20px;
+}
+
+.title {
+  font-size: 2rem;
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  -webkit-background-clip: text;
+  color: transparent;
+  font-weight: bold;
+}
+
+.subtitle {
+  font-size: 1rem;
+  opacity: 0.7;
+  margin-bottom: 20px;
+}
+
+.chat-container {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 15px;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 0 20px rgba(0, 200, 255, 0.2);
+}
+
+.chat-box {
+  overflow-y: auto;
+  flex-grow: 1;
+  margin-bottom: 15px;
+}
+
+.message {
+  margin: 8px 0;
+  padding: 10px 15px;
+  border-radius: 12px;
+  max-width: 80%;
+  animation: fadeIn 0.2s ease;
+}
+
+.user {
+  background: linear-gradient(90deg, #0072ff, #00c6ff);
+  color: white;
+  margin-left: auto;
+  text-align: right;
+}
+
+.bot {
+  background: rgba(255, 255, 255, 0.15);
+  color: #e6e6e6;
+  text-align: left;
+}
+
+.input-area {
+  display: flex;
+  gap: 10px;
+}
+
+.input-area input {
+  flex: 1;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+}
+
+.input-area button {
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.input-area button:hover {
+  opacity: 0.8;
+}
+
+.typing {
+  font-style: italic;
+  color: #aaa;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
