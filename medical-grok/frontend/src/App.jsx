@@ -1,14 +1,15 @@
 import React from "react";
 import ChatUI from "./components/ChatUI";
+import "./index.css";
 
-export default function App() {
+const App = () => {
   return (
-    <div className="min-h-screen bg-black text-gray-200 flex flex-col items-center justify-center p-6">
-      <h1 className="text-4xl font-bold text-cyan-400 mb-6">🧠 Medical GROK</h1>
+    <div className="app">
+      <h1 className="title">🧠 Medical Grok AI</h1>
+      <p className="subtitle">Your AI doctor & nutrition companion</p>
       <ChatUI />
-      <p className="mt-4 text-sm text-gray-500">
-        ⚠️ Not a doctor. Always verify information with a medical professional.
-      </p>
     </div>
   );
-}
+};
+
+export default App;
